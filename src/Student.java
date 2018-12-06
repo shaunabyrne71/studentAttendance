@@ -8,10 +8,10 @@ public class Student {
 
     public AttendanceGrade getAttendanceGrade(int attendance) {
         if (attendance < 0 || attendance > 100) throw new IllegalArgumentException();
-        if (attendance == 0) return AttendanceGrade.ABSENT;
-        if (attendance < 30) return AttendanceGrade.VERY_POOR;        
-        if (attendance < 70 && attendance >= 30) return AttendanceGrade.AVERAGE;
-        if (attendance < 90 && attendance >= 70) return AttendanceGrade.GOOD;
+        else if (attendance == 0) return AttendanceGrade.ABSENT;
+        else if (attendance < 30) return AttendanceGrade.VERY_POOR;        
+        else if (attendance < 70 && attendance >= 30) return AttendanceGrade.AVERAGE;
+        else if (attendance < 90 && attendance >= 70) return AttendanceGrade.GOOD;
         return AttendanceGrade.VERY_GOOD;
     }
     
