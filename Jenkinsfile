@@ -2,20 +2,18 @@ pipeline {
     agent any
 
     stages {	 
-	   stage('build source') {
+	   stage('Build') {
 	   steps {
-	    task('Building Source'){	    	
+	    task('Build'){	    	
 	   		bat '"%JAVA_HOME%/javac" Student.java'
 	    }
+	    task('Build Tests'){
+	   	bat '"%JAVA_HOME%/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'
+	   }
 	   }
 	   
-	   }
-	   stage('build tests') {
-	      steps {
-	    task('build tests'){
-	   	bat '"%JAVA_HOME%/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'
-	   }}}
-	   stage('run tests') {
+	   }	   
+	   stage('Run Tests') {
 	   steps {
 	    task('run tests'){
 	   	bat '"%JAVA_HOME%/java" -classpath C:/junit/junit-4.10.jar;. org.junit.runner.JUnitCore studentTest'
@@ -32,7 +30,7 @@ pipeline {
 
         }
         failure {
-        	emailext body: "The build failed! ${env.BUILD_URL}", recipientProviders: [culprits()], subject: 'FAILED PIPELINE BUILD', attachLog: true
+        	emailext body: "The build failed! ${env.BUILD_URL}", recipientProviders: ['c00144673@itcarlow.ie'], subject: 'FAILED PIPELINE BUILD', attachLog: true
         }
         unstable {
             echo "Unstable"
