@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-    stages {
-	   stage('get all from remote') {
-	   	checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/shaunabyrne71/studentAttendance.git/']]])
-	   }
+    stages {	 
 	   stage('build source') {
 	   	echo 'building source'
 	   	bat '"%JAVA_HOME%/javac" Student.java'
