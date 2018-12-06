@@ -30,8 +30,8 @@ pipeline {
 
         }
         failure {
-        	emailext body: "The build failed! ${env.BUILD_URL}", recipientProviders: ['c00144673@itcarlow.ie'], subject: 'FAILED PIPELINE BUILD', attachLog: true
-        }
+        	mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "JENKINS ERROR ${env.JOB_NAME}", to: "c00144673@itcarlow.com";
+       	}
         unstable {
             echo "Unstable"
         }
