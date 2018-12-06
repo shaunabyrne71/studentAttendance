@@ -1,14 +1,17 @@
 pipeline {
     agent any
-
+ environment {
+ 	JAVA_HOME = "${env.JAVA_HOME}"
+ }
     stages {	 
 	   stage('Build') {
 	   steps {
-	    task('Build'){	    	
-	   		bat '"${env.JAVA_HOME}/javac" Student.java'
+	    task('Build'){	  
+	    	echo "${env.JAVA_HOME}"  	
+	   		bat '"${JAVA_HOME}/javac" Student.java'
 	    }
 	    task('Build Tests'){
-	   	bat '"${env.JAVA_HOME}/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'
+	   	bat '"${JAVA_HOME}/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'
 	   }
 	   }
 	   
@@ -16,7 +19,7 @@ pipeline {
 	   stage('Run Tests') {
 	   steps {
 	    task('run tests'){
-	   	bat '"${env.JAVA_HOME}/javac" -classpath C:/junit/junit-4.10.jar;. org.junit.runner.JUnitCore studentTest'
+	   	bat '"${JAVA_HOME}/javac" -classpath C:/junit/junit-4.10.jar;. org.junit.runner.JUnitCore studentTest'
 	  }}
 	   }   
     }
