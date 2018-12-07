@@ -15,6 +15,7 @@ pipeline {
 		//}
 		stage('Build') {
             steps {
+            	bat 'ant build'
                 bat 'mvn clean install'
             }
         }
