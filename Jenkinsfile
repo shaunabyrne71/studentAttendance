@@ -15,12 +15,12 @@ pipeline {
 		//}
 		stage('Build') {
             steps {
-                bat 'mvn -B -DskipTests clean package'
+                bat 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
-                bat 'mvn test'
+                bat 'mvn -Dtest=studentTest test'
             }
             post {
                 always {
