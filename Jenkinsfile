@@ -31,7 +31,7 @@ pipeline {
 	post {
 		always {
 			echo "Clean Workspace"           
-			cleanWs()
+			//cleanWs()
 		}
 		success {
 			echo "Succeeded"
@@ -41,9 +41,6 @@ pipeline {
 		}
 		unstable {
 			echo "Unstable"
-		}
-		changed {
-			echo 'Changed'            
-		}
+		}		
 	}
 }
