@@ -6,20 +6,16 @@ pipeline {
 	stages {	 
 		stage('Build') {
 			steps {
-					//task('Build'){	  
-						echo "${env.JAVA_HOME}"  	
-						bat '${env.JAVA_HOME}"/javac" Student.java'
-					//}
-					//task('Build Tests'){
-						bat '${env.JAVA_HOME}"/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'
-					//}
+						  
+					echo "${env.JAVA_HOME}"  	
+					bat '"%JAVA_HOME%/javac" Student.java'
+					bat '"%JAVA_HOME%/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'
+					
 				  }
 		}	   
 		stage('Run Tests') {
 			steps {
-				//task('run tests'){
-					bat '${env.JAVA_HOME}"/javac" -classpath C:/junit/junit-4.10.jar;. org.junit.runner.JUnitCore studentTest'
-				//}
+				bat '"%JAVA_HOME%/javac" -classpath C:/junit/junit-4.10.jar;. org.junit.runner.JUnitCore studentTest'				
 			}
 		}   
 	}
