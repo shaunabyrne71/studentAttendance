@@ -12,12 +12,28 @@ pipeline {
 					bat '"%JAVA_HOME%/bin/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'					
 				  
 			}
-		}	   
+		}
+		stage ('Initialize') {
+            steps {
+                
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                
+            }
+        }	   
 		stage('Run Tests') {
 			steps {
 				//bat '"%JAVA_HOME%/bin/javac" -classpath C:/junit/junit-4.10.jar;. org.junit.runner.JUnitCore studentTest.java'			
-				mvn test	
+				//mvn test	
 			}
+			steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
+            }
 		}   	
 	}
 	post {
