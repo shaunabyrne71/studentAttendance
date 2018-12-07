@@ -31,12 +31,10 @@ pipeline {
 	post {
 		always {
 			echo "Clean Workspace"           
-			//cleanWs()
-			junit allowEmptyResults: true, testResults: 'testReport/*.xml'
+			//cleanWs()		
 		}
 		success {
-			echo "Succeeded"
-			archiveArtifacts artifacts: '*/*', onlyIfSuccessful: true
+			echo "Succeeded"			
 		}
 		failure {
 			echo "Failure"
