@@ -4,9 +4,7 @@ pipeline {
 	//	JAVA_HOME = "${env.JAVA_HOME}"
 	//}
 	stages {	 
-		stage('get all from remote') {
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/echancrure/studentAttendance.git/']]])
-   }
+		
    stage('build source') {
        echo 'building source'
        bat '"%JAVA_HOME%/bin/javac" Student.java'
