@@ -31,7 +31,7 @@ pipeline {
 	post {
 		always {
 			echo "Clean Workspace"           
-			cleanWs()
+			//cleanWs()
 			junit allowEmptyResults: true, testResults: 'testReport/*.xml'
 		}
 		success {
