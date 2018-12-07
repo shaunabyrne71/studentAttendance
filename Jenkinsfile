@@ -15,7 +15,7 @@ pipeline {
 		}		  
 		stage('Run Tests') {
 			steps {
-			  bat '"%JAVA_HOME%/bin/javac" -classpath C:/junit/junit-4.10.jar; studentTest.java'			
+			  bat '"%JAVA_HOME%/bin/javac" -classpath C:/junit/junit-4.10.jar; studentTest'			
 				
 			}
 		}
