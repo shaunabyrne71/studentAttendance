@@ -8,14 +8,14 @@ pipeline {
 			steps {					
 					echo "${env.JAVA_HOME}"  
 					echo "%JAVA_HOME%"	
-					bat '"%JAVA_HOME%/javac" Student.java'
-					bat '"%JAVA_HOME%/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'					
+					bat '"%JAVA_HOME%/bin/javac" Student.java'
+					bat '"%JAVA_HOME%/bin/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'					
 				  
 			}
 		}	   
 		stage('Run Tests') {
 			steps {
-				bat '"%JAVA_HOME%/javac" -classpath C:/junit/junit-4.10.jar;. org.junit.runner.JUnitCore studentTest'				
+				bat '"%JAVA_HOME%/bin/javac" -classpath C:/junit/junit-4.10.jar;. org.junit.runner.JUnitCore studentTest'				
 			}
 		}   	
 	}
