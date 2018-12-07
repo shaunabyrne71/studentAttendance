@@ -1,8 +1,8 @@
 pipeline {
 	agent any
-	environment {
-		JAVA_HOME = "${env.JAVA_HOME}"
-	}
+	//environment {
+	//	JAVA_HOME = "${env.JAVA_HOME}"
+	//}
 	stages {	 
 		//stage('Build') {
 		//	steps {					
