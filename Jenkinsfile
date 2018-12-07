@@ -28,15 +28,15 @@ pipeline {
                 }
             }
         }
-		stage ('Initialize') {
-            steps {
+		//stage ('Initialize') {
+        //    steps {
                 
                     //echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
+        //            echo "M2_HOME = ${M2_HOME}"
                 
-            }
-        }	   
-		stage('Run Tests') {
+          //  }
+      //  }	   
+		//stage('Run Tests') {
 			//steps {
 				//bat '"%JAVA_HOME%/bin/javac" -classpath C:/junit/junit-4.10.jar;. org.junit.runner.JUnitCore studentTest.java'			
 				//mvn test	
@@ -49,7 +49,7 @@ pipeline {
            ///         junit 'target/surefire-reports/**/*.xml' 
            //     }
            // }
-		}   	
+		//}   	
 	}
 	post {
 		always {
