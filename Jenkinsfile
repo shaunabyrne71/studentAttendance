@@ -19,7 +19,8 @@ pipeline {
 	}
 	post {
 		always {
-			echo "Always"		        
+			echo "Always"
+			bat 'mvn surefire-report:report'			        
 		}
 		success {
 			echo "Succeeded"
