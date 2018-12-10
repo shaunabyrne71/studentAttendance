@@ -6,16 +6,11 @@ pipeline {
 		       bat 'mvn compile'
 		   }
 	   }
-	   stage ('Run Install') {
+	   stage ('Run Test') {
             steps {
                 bat 'mvn install'
             }            
-        } 
-        stage ('Run Test') {
-        	steps {
-        		bat 'mvn -Dtest=studentTest test'
-        	}
-        }
+        }        
 	}
 	post {
 		always {
