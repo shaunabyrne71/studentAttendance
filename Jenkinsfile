@@ -7,9 +7,24 @@ pipeline {
 		   }
 	   } 
 	   stage ('Run Test') {
-          steps {
-              bat 'mvn -Dtest=studentTest test'
-          }            
+            steps {
+                bat 'mvn -Dtest=studentTest test'
+            }            
         }
-	}	
+	}
+	post {
+		always {
+			echo "Always"  
+			cleanWS()        
+		}
+		success {
+			echo "Succeeded"			
+		}
+		failure {
+			echo "Failure"
+		}
+		unstable {
+			echo "Unstable"
+		}		
+	}
 }
