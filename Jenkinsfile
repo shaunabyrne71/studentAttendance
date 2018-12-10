@@ -12,7 +12,9 @@ pipeline {
             }            
         } 
         stage ('Run Test') {
-        	bat 'mvn -Dtest=studentTest test'
+        	steps {
+        		bat 'mvn -Dtest=studentTest test'
+        	}
         }
 	}
 	post {
