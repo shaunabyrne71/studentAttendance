@@ -12,6 +12,7 @@ pipeline {
 	   stage ('Run Test') {
             steps {
                 bat 'mvn -Dmaven.test.failure.ignore=true install' 
+                bat 'mvn studentTest'
             }            
         } 
 	}
