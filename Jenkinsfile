@@ -1,13 +1,9 @@
 pipeline {
 	agent any
 	stages {
-	   stage('Build source') {
+	   stage('Compile') {
 		   steps{
-		       echo 'building source'
-		       bat '"%JAVA_HOME%/bin/javac" Student.java'
-		       echo 'build test'
-	           bat '"%JAVA_HOME%/bin/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'
-	           bat 'mvn -Dmaven.test.failure.ignore=true clean install' 
+		       bat 'mvn compile'
 		   }
 	   }
 	   stage ('Run Test') {
