@@ -6,12 +6,14 @@ pipeline {
 		       bat 'mvn compile'
 		   }
 	   }
-	   //stage ('Run Test') {
-       //     steps {
-                //bat 'mvn -Dmaven.test.failure.ignore=true install' 
-                //bat 'mvn -Dtest=studentTest test'
-       //     }            
-       // } 
+	   stage ('Run Install') {
+            steps {
+                bat 'mvn install'
+            }            
+        } 
+        stage ('Run Test') {
+        	bat 'mvn -Dtest=studentTest test'
+        }
 	}
 	post {
 		always {
