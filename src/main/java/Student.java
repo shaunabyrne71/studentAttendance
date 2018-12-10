@@ -1,6 +1,6 @@
 /**
- * Created by meudecc on 15/02/2017. 05/12/2018 - Shauna Byrne - Updated to Fix
- * asserts
+ * Created by meudecc on 15/02/2017. 
+ * 12/12/2018 - Shauna Byrne - Updated to Fix asserts
  */
 public class Student {
 

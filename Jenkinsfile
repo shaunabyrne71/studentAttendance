@@ -6,6 +6,11 @@ pipeline {
 		       bat 'mvn compile'
 		   }
 	   } 
+	   stage('Clean Install') {
+		   steps{
+		       bat 'mvn clean install -Dmaven.test.skip=true'
+		   }
+	   }
 	   stage ('Run Test') {
             steps {
                 bat 'mvn -Dtest=studentTest test'
@@ -14,10 +19,11 @@ pipeline {
 	}
 	post {
 		always {
-			echo "Always"			        
+			echo "Always"						        
 		}
 		success {
-			echo "Succeeded"			
+			echo "Succeeded"
+					
 		}
 		failure {
 			echo "Failure"
