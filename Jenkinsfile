@@ -12,12 +12,7 @@ pipeline {
 	   stage ('Run Test') {
             steps {
                 bat 'mvn -Dmaven.test.failure.ignore=true install' 
-            }
-            post {
-                success {
-                  //  junit 'target/surefire-reports/**/*.xml' 
-                }
-            }
+            }            
         } 
 	}
 	post {
@@ -25,7 +20,8 @@ pipeline {
 			echo "Always"          
 		}
 		success {
-			echo "Succeeded"			
+			echo "Succeeded"
+			//  junit 'target/surefire-reports/**/*.xml'			
 		}
 		failure {
 			echo "Failure"
