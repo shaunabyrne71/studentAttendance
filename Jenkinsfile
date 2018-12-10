@@ -14,8 +14,7 @@ pipeline {
 	}
 	post {
 		always {
-			echo "Always"  
-			cleanWS()        
+			echo "Always"			        
 		}
 		success {
 			echo "Succeeded"			
