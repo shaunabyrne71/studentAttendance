@@ -10,7 +10,12 @@ pipeline {
             steps {
                 bat 'mvn install'
             }            
-        }        
+        } 
+        stage ('Create Report') {
+        	steps {
+        		bat 'mvn surefire-report:report'
+        	}
+        }
 	}
 	post {
 		always {
