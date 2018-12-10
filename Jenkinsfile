@@ -5,26 +5,19 @@ pipeline {
 		   steps{
 		       bat 'mvn compile'
 		   }
-	   }
-	   //stage('Clean Install') {
-		 //  steps{
-		   //    bat 'mvn clean install -Dmaven.test.skip=true'
-		   //}
-	   //}
-	   
-	   stage ('Run Test') {
-            steps {
-                bat 'mvn -Dtest=studentTest test'
-            }            
-        }
+	   } 
+	  // stage ('Run Test') {
+        //    steps {
+          //      bat 'mvn -Dtest=studentTest test'
+            //}            
+        //}
 	}
 	post {
 		always {
 			echo "Always"          
 		}
 		success {
-			echo "Succeeded"
-			//bat 'mvn surefire-report:report'		
+			echo "Succeeded"			
 		}
 		failure {
 			echo "Failure"
