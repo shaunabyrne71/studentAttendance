@@ -1,5 +1,9 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -24,9 +28,9 @@
 				<configuration>
 					<testFailureIgnore>false</testFailureIgnore>
 					<source>8</source>
-					<target>8</target>					
+					<target>8</target>
 				</configuration>
-			</plugin>			
+			</plugin>
 		</plugins>
 		<sourceDirectory>src</sourceDirectory>
 		<testSourceDirectory>${project.basedir}/src</testSourceDirectory>
