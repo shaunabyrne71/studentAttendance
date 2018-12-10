@@ -12,18 +12,18 @@ pipeline {
             //}            
         //}
 	}
-	post {
-		always {
-			echo "Always"          
-		}
-		success {
+	//post {
+		//always {
+			//echo "Always"          
+		//}
+		//success {
 			echo "Succeeded"			
-		}
-		failure {
-			echo "Failure"
-		}
-		unstable {
-			echo "Unstable"
-		}		
-	}
+		//}
+		//failure {
+		//	echo "Failure"
+		//}
+		//unstable {
+		//	echo "Unstable"
+		//}		
+	//}
 }
