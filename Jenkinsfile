@@ -8,7 +8,17 @@ pipeline {
 		       echo 'build test'
 	           bat '"%JAVA_HOME%/bin/javac" -classpath C:/junit/junit-4.10.jar;. studentTest.java'
 		   }
-	   } 
+	   }
+	   stage ('Run Test') {
+            steps {
+                bat 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+            post {
+                success {
+                  //  junit 'target/surefire-reports/**/*.xml' 
+                }
+            }
+        } 
 	}
 	post {
 		always {
