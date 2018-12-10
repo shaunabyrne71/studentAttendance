@@ -6,15 +6,16 @@ pipeline {
 		       bat 'mvn compile'
 		   }
 	   }
+	   stage('Clean Install') {
+		   steps{
+		       bat 'mvn clean install -Dmaven.test.skip=true'
+		   }
+	   }
+	   
 	   stage ('Run Test') {
             steps {
-                bat 'mvn install'
+                bat 'mvn -Dtest=studentTest test'
             }            
-        } 
-        stage ('Create Report') {
-        	steps {
-        		bat 'mvn surefire-report:report'
-        	}
         }
 	}
 	post {
@@ -23,7 +24,7 @@ pipeline {
 		}
 		success {
 			echo "Succeeded"
-			//  junit 'target/surefire-reports/**/*.xml'			
+			//bat 'mvn surefire-report:report'		
 		}
 		failure {
 			echo "Failure"
