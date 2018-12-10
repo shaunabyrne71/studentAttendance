@@ -17,7 +17,7 @@ pipeline {
 			//echo "Always"          
 		//}
 		//success {
-			echo "Succeeded"			
+		//	echo "Succeeded"			
 		//}
 		//failure {
 		//	echo "Failure"
