@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	stages {
-	   stage('Get from Repo') {
+	   stage() {
 	   	steps{
 	   	    	checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
       	 		 userRemoteConfigs: [[url: 'https://github.com/shaunabyrne71/studentAttendance.git/']]])
@@ -16,12 +16,7 @@ pipeline {
 		   steps{
 		       bat 'mvn clean install -Dmaven.test.skip=true'
 		   }
-	   }
-	   stage ('Run Test') {
-            steps {
-                bat 'mvn -Dtest=studentTest test'
-            }            
-        }
+	   }	   
 	}
 	post {
 		always {
