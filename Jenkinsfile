@@ -1,6 +1,9 @@
 pipeline {
 	agent any
 	stages {
+	   stage('Get from Repo') {
+      	 	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/shaunabyrne71/studentAttendance.git/']]])
+  	   }
 	   stage('Compile') {
 		   steps{
 		       bat 'mvn compile'
