@@ -16,7 +16,12 @@ pipeline {
 		   steps{
 		       bat 'mvn clean install -Dmaven.test.skip=true'
 		   }
-	   }	   
+	   }
+	   stage ('Run Test') {
+            steps {
+                bat 'mvn -Dtest=studentTest test'
+            }            
+        }
 	}
 	post {
 		always {
