@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	stages {
-	   stage() {
+	   stage('Get from Repo') {
 	   	steps{
 	   	    	checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
       	 		 userRemoteConfigs: [[url: 'https://github.com/shaunabyrne71/studentAttendance.git/']]])
